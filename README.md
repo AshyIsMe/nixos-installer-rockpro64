@@ -8,6 +8,8 @@ The RockPro64 currently is not yet fully upstreamed into uboot and the kernel an
 There is no cross-compiling support in this repo currently so this must be built on a aarch64 machine (or possibly an emulated aarch64 qemu vm).
 It has been tested on a c2.large.arm machine on packet.net.
 
+Note: Currently you need to build on the nixos-unstable channel (20.03pre at the moment) as the image produced by stable 19.03 does not boot.
+
 ```
 # To build, use:
 nix-build '<nixpkgs/nixos>' -I nixos-config=sd-image-aarch64-rockpro64.nix -A config.system.build.sdImage
