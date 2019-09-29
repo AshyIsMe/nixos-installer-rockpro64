@@ -10,7 +10,11 @@ It has been tested on a c2.large.arm machine on packet.net.
 
 ```
 # To build, use:
-nix-build '<nixpkgs/nixos>' -I nixos-config=sd-image-rockpro64.nix -A config.system.build.sdImage
+nix-build '<nixpkgs/nixos>' -I nixos-config=sd-image-aarch64-rockpro64.nix -A config.system.build.sdImage
+
+# When it completes the image will be in the result symlink dir:
+find result/ -iname "*.img"
+# result/sd-image/nixos-sd-image-19.03pre-git-aarch64-linux.img
 
 
 ```
@@ -22,7 +26,7 @@ In the below commands replace mmcblkX with the correct sdcard device.
 
 ```
 # Copy the image to the sdcard
-sudo dd if=nixos-sd-image-20.03.git.87a6dfc-aarch64-linux.img of=/dev/mmcblkX status=progress
+sudo dd if=nixos-sd-image-19.03pre-git-aarch64-linux.img of=/dev/mmcblkX status=progress
 
 # Use fdisk to delete first partition. 
 # (The first partition currently contains firmware for other boards and is not useful for the rockpro64.
