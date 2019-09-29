@@ -10,7 +10,8 @@ It has been tested on a c2.large.arm machine on packet.net.
 
 ```
 # To build, use:
-nix-build nixos -I nixos-config=sd-image-aarch64-rockpro64.nix -A config.system.build.sdImage
+nix-build '<nixpkgs/nixos>' -I nixos-config=sd-image-rockpro64.nix -A config.system.build.sdImage
+
 
 ```
 
